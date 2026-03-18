@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My ESP32 Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        .card {
+            background: #1e293b;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #22c55e;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        iframe {
+            width: 90%;
+            height: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🚀 My ESP32 Projects</h1>
+    <p>Welcome! Here are my Thonny IDE projects and tutorials</p>
+
+    <!-- Project 1 -->
+    <div class="card">
+        <h2>ESP32 LED Control</h2>
+
+        <p>Code:</p>
+        <pre>
+from machine import Pin
+import time
+
+led = Pin(2, Pin.OUT)
+
+while True:
+    led.value(1)
+    time.sleep(1)
+    led.value(0)
+    time.sleep(1)
+        </pre>
+
+        <p>YouTube Video:</p>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="card">
+        <h2>ESP32 HC-SR04 Distance</h2>
+
+        <pre>
+import machine
+import time
+
+trig = machine.Pin(5, machine.Pin.OUT)
+echo = machine.Pin(18, machine.Pin.IN)
+
+def get_distance():
+    trig.off()
+    time.sleep_us(2)
+    trig.on()
+    time.sleep_us(10)
+    trig.off()
+
+    while echo.value() == 0:
+        pass
+    start = time.ticks_us()
+
+    while echo.value() == 1:
+        pass
+    end = time.ticks_us()
+
+    distance = (end - start) / 58
+    return distance
+
+while True:
+    print(get_distance())
+    time.sleep(1)
+        </pre>
+
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    </div>
+
+</body>
+</html>
